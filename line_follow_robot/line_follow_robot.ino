@@ -1,3 +1,10 @@
+/*
+ * wheel diagram
+    IN1  IN4
+    IN2  IN3
+*/
+
+
 #include <Wire.h>
 #include <NewPing.h>
 
@@ -29,50 +36,54 @@ void setup()
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
+  pinMode(PWM1, OUTPUT);
+  pinMode(PWM2, OUTPUT);
 }
 
 void Forward()
 {
-  digitalWrite(IN1, 1);
   analogWrite(PWM1, Speed1);
+  analogWrite(PWM2, Speed1);
+  digitalWrite(IN1, 1);
   digitalWrite(IN2, 0);
   digitalWrite(IN3, 0);
   digitalWrite(IN4, 1);
-  analogWrite(PWM2, Speed2);
 }
 
 void TurnRight()
 {
+  analogWrite(PWM1, Speed1);
+  analogWrite(PWM2, Speed1);
   digitalWrite(IN1, 0);
   digitalWrite(IN2, 1);
-  analogWrite(IN2, Speed1);
   digitalWrite(IN3, 0);
   digitalWrite(IN4, 1);
-  analogWrite(IN4, Speed1);
 }
 
 void TurnLeft()
 {
+  analogWrite(PWM1, Speed1);
+  analogWrite(PWM2, Speed1);
   digitalWrite(IN1, 1);
-  analogWrite(IN1, Speed1);
   digitalWrite(IN2, 0);
   digitalWrite(IN3, 1);
-  analogWrite(IN3, Speed1);
   digitalWrite(IN4, 0);;
 }
 
 void Backward()
 {
+  analogWrite(PWM1, Speed1);
+  analogWrite(PWM2, Speed1);
   digitalWrite(IN1, 0);
   digitalWrite(IN2, 1);
-  // analogWrite(IN2,Speed1);
   digitalWrite(IN3, 1);
-  // analogWrite(IN3,Speed1);
   digitalWrite(IN4, 0);
 }
 
 void Stop()
 {
+  analogWrite(PWM1, 0);
+  analogWrite(PWM2, 0);
   digitalWrite(IN1, 0);
   digitalWrite(IN2, 0);
   digitalWrite(IN3, 0);
@@ -124,7 +135,6 @@ void loop()
 
   else
   {
-
     Stop();
   }
 }
