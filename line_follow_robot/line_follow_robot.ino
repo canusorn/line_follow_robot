@@ -1,5 +1,5 @@
 /*
- * wheel diagram
+   wheel diagram
     IN1  IN4
     IN2  IN3
 */
@@ -20,9 +20,7 @@ int IN1 = 31;
 int IN2 = 33;
 int IN3 = 37;
 int IN4 = 35;
-
 int LEFT = 47;
-
 int CENTER = 45;
 int RIGHT = 43;
 
